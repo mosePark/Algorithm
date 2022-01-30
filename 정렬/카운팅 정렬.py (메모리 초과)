@@ -1,0 +1,31 @@
+# 10989: 수 정렬하기 3
+'''
+1부터 10000까지의 수 정렬 (입력 요소)
+각 요소들이 리스트에 몇개 존재하지? (카운팅)
+
+'''
+def counting(arr, k) :
+    c = [0] * k # 1부터 10,000 숫자가 몇개 카운팅?
+    sorted_arr = [0] * len(arr)
+
+    for i in arr :
+        c[i] += 1 # 카운팅
+
+    for i in range(1, k) :
+        c[i] += c[i-1]
+
+    for i in range(len(arr)) :
+        sorted_arr[c[arr[i]]-1] = arr[i]
+        c[arr[i]] -= 1
+
+    return sorted_arr
+
+import sys
+n = int(sys.stdin.readline())
+ans = []
+for _ in range(n) :
+    num = int(sys.stdin.readline())
+    ans.append(num)
+
+for i in counting(ans, 10000) :
+    print(i)
