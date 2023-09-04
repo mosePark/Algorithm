@@ -1,2 +1,5 @@
 # BOJ-Algorithm
-My Solution of BOJ Algorithm Problem
+스스로 풀어보는 백준 알고리즘
+
+## 수정사항
+- 23-09-24 : .py 파일명을 `문제번호`.py 로 변경
