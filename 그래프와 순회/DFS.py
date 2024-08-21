@@ -31,7 +31,7 @@ def dfs_iterative(graph, start):
     return visited
 
 '''
-기본적인 설명 구조
+기본적인 설명 구조 (recursion)
 '''
 
     A
@@ -40,6 +40,73 @@ def dfs_iterative(graph, start):
  / \   \
 D   E   F
 
+# (1) dfs(graph, 'A', set()) 함수가 호출됩니다.
+    '''
+    노드 A를 방문 처리하고 출력합니다.
+    노드 A의 인접 노드인 B, C에 대해 재귀 호출을 합니다.
+    
+    Call Stack: dfs(graph, 'A', set())
+    Visited: {'A'}
+    Output: A
+    '''
+
+# (2) 노드 B에 대한 dfs(graph, 'B', set()) 함수가 호출됩니다.
+    '''
+    노드 A를 방문 처리하고 출력합니다.
+    노드 A의 인접 노드인 B, C에 대해 재귀 호출을 합니다.
+
+    Call Stack: dfs(graph, 'B', set())
+    Visited: {'A', 'B'}
+    Output: A B
+    '''
+
+# (3) 노드 D ~
+    '''
+    노드 D를 방문 처리하고 출력합니다.
+    노드 D는 말단 노드이므로 더 이상 재귀 호출이 없습니다.
+
+    Call Stack: dfs(graph, 'D', set())
+    Visited: {'A', 'B', 'D'}
+    Output: A B D
+    '''
+
+# (4) 노드 E ~
+
+    '''
+    노드 E를 방문 처리하고 출력합니다.
+    노드 E의 인접 노드인 F에 대해 재귀 호출을 합니다.
+    '''
+    Call Stack: dfs(graph, 'E', set())
+    Visited: {'A', 'B', 'D', 'E'}
+    Output: A B D E
+
+# (5) 노드 C ~
+
+    '''
+    노드 C를 방문 처리하고 출력합니다.
+    노드 C의 인접 노드인 F에 대해 재귀 호출을 합니다.
+    
+    Call Stack: dfs(graph, 'C', set())
+    Visited: {'A', 'B', 'D', 'E', 'C'}
+    Output: A B D E C
+    '''
+
+
+# (5) 노드 F ~
+
+    '''
+    노드 F를 방문 처리하고 출력합니다.
+    노드 F는 말단 노드이므로 더 이상 재귀 호출이 없습니다.
+    '''
+    Call Stack: dfs(graph, 'F', set())
+    Visited: {'A', 'B', 'D', 'E', 'F'}
+    Output: A B D E F
+
+# (6) 모든 재귀 호출이 종료되면 DFS 알고리즘이 완료
+
+'''
+기본적인 설명 구조2 (stack)
+'''
 
 # (1) root 노드 'A'를 stack에 push합니다.
 Stack: [A]
@@ -49,15 +116,15 @@ Visited: {A}
 Stack: [C, B]
 Visited: {A}
 
-# (3) 이하 동문
+# (3) " 이하 동문
 Stack: [F, B]
 Visited: {A, C}
 
-# (4) 이하 동문
+# (4) 
 Stack: [B]
 Visited: {A, C, F}
 
-# (5) 이하 동문
+# (5) 
 Stack: [E, D]
 Visited: {A, C, F, B}
 
@@ -70,3 +137,6 @@ Visited: {A, C, F, B, E}
 
 Stack: []
 Visited: {A, C, F, B, E, D}
+
+
+
