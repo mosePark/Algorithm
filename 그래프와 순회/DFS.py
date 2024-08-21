@@ -29,3 +29,44 @@ def dfs_iterative(graph, start):
             stack.extend(neighbor for neighbor in graph[vertex] if neighbor not in visited)
     
     return visited
+
+'''
+기본적인 설명 구조
+'''
+
+    A
+   / \
+  B   C
+ / \   \
+D   E   F
+
+
+# (1) root 노드 'A'를 stack에 push합니다.
+Stack: [A]
+Visited: {A}
+
+# (2) stack에서 노드 A를 pop하고, 방문 처리합니다. 그리고 A의 인접 노드 B, C를 스택에 push합니다.
+Stack: [C, B]
+Visited: {A}
+
+# (3) 이하 동문
+Stack: [F, B]
+Visited: {A, C}
+
+# (4) 이하 동문
+Stack: [B]
+Visited: {A, C, F}
+
+# (5) 이하 동문
+Stack: [E, D]
+Visited: {A, C, F, B}
+
+# (6)
+
+Stack: [D]
+Visited: {A, C, F, B, E}
+
+# (7)
+
+Stack: []
+Visited: {A, C, F, B, E, D}
