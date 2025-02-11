@@ -1,0 +1,9 @@
+-- 코드를 입력하세요
+SELECT t1.BOOK_ID,
+        t2.AUTHOR_NAME,
+        DATE_FORMAT(t1.PUBLISHED_DATE, '%Y-%m-%d')
+    FROM BOOK as t1
+    INNER JOIN AUTHOR as t2
+    ON t1.AUTHOR_ID = t2.AUTHOR_ID
+    WHERE t1.CATEGORY = '경제'
+    ORDER BY t1.PUBLISHED_DATE
