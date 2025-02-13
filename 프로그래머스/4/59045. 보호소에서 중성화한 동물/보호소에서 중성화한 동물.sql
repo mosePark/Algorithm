@@ -1,0 +1,8 @@
+-- 코드를 입력하세요
+SELECT t1.ANIMAL_ID,
+        t1.ANIMAL_TYPE,
+        t1.NAME
+    FROM ANIMAL_INS as t1
+    LEFT JOIN ANIMAL_OUTS as t2
+    ON t1.ANIMAL_ID = t2.ANIMAL_ID
+    WHERE t1.SEX_UPON_INTAKE LIKE 'Intact%' and t2.SEX_UPON_OUTCOME NOT LIKE 'Intact%'
